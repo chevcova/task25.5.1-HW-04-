@@ -40,7 +40,6 @@ def test_show_my_pets(driver):
     # Настраиваем переменную явного ожидания:
     wait = WebDriverWait(driver, 5)
 
-
     ## Написать тест, который проверяет, что на странице со списком питомцев пользователя:
     #Присутствуют все питомцы.
     element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".\\.col-sm-4.left")))
@@ -76,7 +75,6 @@ def test_show_my_pets(driver):
     for i in range(len(images)):
         if images[i].get_attribute('src') != '':
             number_а_photos += 1
-
     # Проверяем что количество питомцев с фотографией больше или равно половине количества питомцев
     assert number_а_photos >= half
     print(f'Тест2 Количество питомцев с фото: {number_а_photos}')
@@ -88,7 +86,6 @@ def test_show_my_pets(driver):
     element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".table.table-hover tbody tr")))
     # Сохраняем в переменную pet_data элементы с данными о питомцах
     pet_data = driver.find_elements(By.CSS_SELECTOR, '.table.table-hover tbody tr')
-
     # Перебираем данные из pet_data, оставляем имя, возраст, и породу остальное меняем на пустую строку
     # и разделяем по пробелу. Находим количество элементов в получившемся списке и сравниваем их
     # с ожидаемым результатом
